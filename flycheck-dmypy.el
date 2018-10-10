@@ -46,7 +46,9 @@ E.g. when processing Python2 files, add \"--py2\".
 See URL `http://mypy-lang.org/'."
 
   :command ("dmypy"
+            "run"
             (eval flycheck-python-dmypy-args)
+            "--"
             source-original)
   :error-patterns
   ((error line-start (file-name) ":" line ": error:" (message) line-end)
