@@ -33,23 +33,19 @@
 ;;; Code:
 (require 'flycheck)
 
-(flycheck-def-args-var flycheck-python-dmypy-args python-dmypy)
+
+(defun flycheck-dmypy--find-project-root (_checker)
+  (locate-dominating-file (or buffer-file-name default-directory) "mypy.ini"))
 
 (flycheck-define-checker python-dmypy
   "Dmypy syntax checker.
-
-Customize `flycheck-python-dmypy-args` to add specific args to default
-executable.
-
-E.g. when processing Python2 files, add \"--py2\".
 
 See URL `http://mypy-lang.org/'."
 
   :command ("dmypy"
             "run"
-            (eval flycheck-python-dmypy-args)
-            "--"
             source-original)
+  :working-directory flycheck-dmypy--find-project-root
   :error-patterns
   ((error line-start (file-name) ":" line ":" column ": error:" (message) line-end)
    (warning line-start (file-name) ":" line ":" column ": warning:" (message) line-end)
