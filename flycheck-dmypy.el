@@ -43,7 +43,9 @@
 See URL `http://mypy-lang.org/'."
 
   :command ("dmypy"
-            "run"
+            "run",
+            "--",
+            "--show-column-numbers",
             source-original)
   :working-directory flycheck-dmypy--find-project-root
   :error-patterns
