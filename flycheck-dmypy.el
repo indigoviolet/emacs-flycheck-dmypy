@@ -47,9 +47,9 @@ See URL `http://mypy-lang.org/'."
             source-original)
   :working-directory flycheck-dmypy--find-project-root
   :error-patterns
-  ((error line-start (file-name) ":" line ":" column ": error:" (message) line-end)
-   (warning line-start (file-name) ":" line ":" column ": warning:" (message) line-end)
-   (info line-start (file-name) ":" line ":" column ": note:" (message) line-end))
+  ((error line-start (file-name) ":" line (optional ":" column) ": error:" (message) line-end)
+   (warning line-start (file-name) ":" line (optional ":" column) ": warning:" (message) line-end)
+   (info line-start (file-name) ":" line (optional ":" column) ": note:" (message) line-end))
   :modes python-mode)
 
 (add-to-list 'flycheck-checkers 'python-dmypy t)
