@@ -46,7 +46,7 @@ See URL `http://mypy-lang.org/'."
             "run"
             "--"
             "--show-column-numbers"
-            source-original)
+            source-inplace)
   :working-directory flycheck-dmypy--find-project-root
   :error-patterns
   ((error line-start (file-name) ":" line (optional ":" column) ": error:" (message) line-end)
