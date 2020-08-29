@@ -43,6 +43,7 @@
 See URL `http://mypy-lang.org/'."
 
   :command ("dmypy"
+            "--status-file /tmp/flycheck-dmypy"
             "run"
             "--"
             "--show-column-numbers"
