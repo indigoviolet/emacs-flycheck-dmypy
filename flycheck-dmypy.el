@@ -45,10 +45,11 @@ See URL `http://mypy-lang.org/'."
   :command ("dmypy"
             "--status-file"
             "/tmp/flycheck-dmypy"
+            "--log-file"
+            "/tmp/flycheck-dmypy.log"
             "run"
             "--"
-            "--show-column-numbers"
-            source-inplace)
+            source-original)            ;; source-inplace will make a copy
   :working-directory flycheck-dmypy--find-project-root
   :error-patterns
   ((error line-start (file-name) ":" line (optional ":" column) ": error:" (message) line-end)
